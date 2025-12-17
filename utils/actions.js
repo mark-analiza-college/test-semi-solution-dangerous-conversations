@@ -22,7 +22,9 @@ export async function getPeopleList() {
   console.log(people);
 }
 
-export function getTranscriptions() {}
+export function getTranscriptions() {
+  
+}
 export function searchPeopleByName() {}
 export function searchPeopleByAge() {}
 export function findDangerousPeopleAction() {}
