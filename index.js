@@ -31,20 +31,20 @@ async function mainMenu() {
         await getPeopleList();
         break;
       case "2":
-        getTranscriptions();
+        await getTranscriptions();
         break;
       case "3": {
         const name = readlineSync.question("Enter name to search: ");
-        searchPeopleByName(name);
+        await searchPeopleByName(name);
         break;
       }
       case "4": {
         const age = readlineSync.question("Enter age to search: ");
-        searchPeopleByAge(age);
+        await searchPeopleByAge(age);
         break;
       }
       case "5":
-        findDangerousPeopleAction();
+        await findDangerousPeopleAction();
         break;
       case "0":
         exit = true;
@@ -58,7 +58,7 @@ async function mainMenu() {
 }
 
 try {
-  mainMenu();
-} catch (err) {
+  await mainMenu();
+} catch (error) {
   console.error("MAIN MANU COUGHT AN ERROR:", error);
 }

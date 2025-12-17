@@ -22,8 +22,14 @@ export async function getPeopleList() {
   console.log(people);
 }
 
-export function getTranscriptions() {
-  
+export async function getTranscriptions() {
+  const res = await fetch(`${BASE_URL}/transcriptions`);
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
+  const tarnscriptions = await res.json();
+  await fs.promises.writeFile("data/transcriptions.json", JSON.stringify(tarnscriptions))
+  console.log(tarnscriptions);
 }
 export function searchPeopleByName() {}
 export function searchPeopleByAge() {}
